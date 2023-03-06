@@ -17,5 +17,33 @@ basic.forever(function () {
     }
     if (input.buttonIsPressed(Button.B)) {
         radio.sendNumber(6)
+    } else if (KSB045.getJoystickValue(KSB045.valueType.X) > 540 && (KSB045.getJoystickValue(KSB045.valueType.Y) < 700 && KSB045.getJoystickValue(KSB045.valueType.Y) > 300)) {
+        radio.sendNumber(7)
+    } else if (KSB045.getJoystickValue(KSB045.valueType.X) < 500 && (KSB045.getJoystickValue(KSB045.valueType.Y) < 700 && KSB045.getJoystickValue(KSB045.valueType.Y) > 300)) {
+        radio.sendNumber(8)
+    } else if (KSB045.getJoystickValue(KSB045.valueType.Y) > 540 && (KSB045.getJoystickValue(KSB045.valueType.X) < 700 && KSB045.getJoystickValue(KSB045.valueType.X) > 300)) {
+        radio.sendNumber(9)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # . . . #
+            . # . # .
+            . . # . .
+            `)
+        basic.pause(50)
+        basic.clearScreen()
+    } else if (KSB045.getJoystickValue(KSB045.valueType.Y) < 500 && (KSB045.getJoystickValue(KSB045.valueType.X) < 700 && KSB045.getJoystickValue(KSB045.valueType.X) > 300)) {
+        radio.sendNumber(10)
+        basic.showLeds(`
+            . . # . .
+            . # . # .
+            # . . . #
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(50)
+        basic.clearScreen()
+    } else {
+    	
     }
 })
